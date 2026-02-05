@@ -43,6 +43,7 @@
             border-radius: 5px;
             padding: 20px;
             margin-bottom: 25px;
+            min-width: 0
         }
 
         legend {
@@ -124,19 +125,19 @@
             
             <div class="form-group">
                 <label>Nombre completo del cliente<br>
-                <span>Client's full name</span></label>
-                <textarea name="benchmark" rows="3" placeholder="Ej. Jane Doe" required></textarea>
+                <span>Client's full name</span>
+                <textarea name="benchmark" rows="3" placeholder="Ej. Jane Doe" required></textarea></label>
             </div>
 
             <div class="form-group">
-                <label>Nombre de la marca<br>
-                <span>Brand's name</span></label>
-                <textarea name="benchmark" rows="3" placeholder="Ej. Elistudio" required></textarea>
+                <label for="benchmark">Nombre de la marca<br>
+                <span>Brand's name</span>
+                <textarea name="benchmark" rows="3" placeholder="Ej. Elistudio" required></textarea></label>
             </div>
 
             <div class="form-group">
-                <label>Email<br>
-                <input type="email" required>
+                <label for="email">Email</label>
+                <input id="email" type="email" autocomplete="on" required>
             </div>
 
         </fieldset>
@@ -145,22 +146,22 @@
             <legend>2. Identidad y Activos / Identity & Assets</legend>
             
             <div class="form-group">
-                <label>¿Cuenta con manual de marca o logo en alta resolución?<br>
+                <label for="radio-group">¿Cuenta con manual de marca o logo en alta resolución?<br>
                 <span>Do you have a brand manual or high-res logo?</span></label>
                 <div class="radio-group">
-                    <label class="radio-item"><input type="radio" name="brand_assets" value="si" required> Sí / Yes</label>
+                    <label class="radio-item"><input type="radio" id="radio-group" name="brand_assets" value="si" required> Sí / Yes</label>
                     <label class="radio-item"><input type="radio" name="brand_assets" value="no"> No</label>
                 </div>
             </div>
 
             <div class="form-group">
-                <label>Subir logo o manual (si aplica) - De tener mas de un documento, subir comprimido (ej. rar, zip):<br>
+                <label for="file">Subir logo o manual (si aplica) - De tener mas de un documento, subir comprimido (ej. rar, zip):<br>
                 <span>Upload logo or manual (if applicable) - If you have more than one document, upload them as a compressed file (e.g., rar, zip).</span></label>
-                <input type="file" name="logo_file">
+                <input id="file" type="file" name="logo_file">
             </div>
 
             <div class="form-group">
-                <label>Servicio de Redacción (Copywriting):<br>
+                <label for="copywriting_option">Servicio de Redacción (Copywriting):<br>
                 <span>Who will handle the website content?</span></label>
                 <select name="copywriting_option" id="copywriting_option" required onchange="updateTotal()">
                     <option value="cliente_entrega">Yo entregaré los textos / I will provide the texts ($0)</option>
@@ -171,9 +172,9 @@
             </div>
 
             <div class="form-group">
-                <label>Referencias / Benchmark:<br>
+                <label for="benchmark">Referencias / Benchmark:<br>
                 <span>Links to websites you like:</span></label>
-                <textarea name="benchmark" rows="3" placeholder="https://ejemplo.com - Me gusta su navegación..."></textarea>
+                <textarea id="benchmark" name="benchmark" rows="3" placeholder="https://ejemplo.com - Me gusta su navegación..."></textarea>
             </div>
         </fieldset>
 
@@ -181,37 +182,37 @@
             <legend>3. Alcance y Estructura / Scope & Structure</legend>
             
             <div class="form-group">
-                <label>Tipo de Proyecto / Project Type:</label>
+                <label>Tipo de Proyecto / Project Type:
                 <select name="project_type" required>
                     <option value="landing">Landing Page ($250) - max 5 sections ($50 per extra section)</option>
                     <option value="multipage">Web Multipágina ($500) - max 4 pages ($75 per extra page)</option>
                     <option value="fullstack">Web Full-Stack ($1000)</option>
-                </select>
+                </select></label>
             </div>
 
             <div class="form-group">
                 <label>¿Desea mas páginas/secciones de las establecidas?<br>
-                <span>Do you want more pages/sections than those specified?</span></label>
+                <span>Do you want more pages/sections than those specified?</span>
                 <div class="radio-group">
                     <label class="radio-item"><input type="radio" name="brand_assets" value="si" required> Sí / Yes</label>
                     <label class="radio-item"><input type="radio" name="brand_assets" value="no"> No</label>
-                </div>
+                </div></label>
             </div>
 
             <div class="form-group">
                 <label>Mapa del sitio / Sitemap:<br>
-                <span>Desired pages/sections:</span></label>
-                <input type="text" name="sitemap" placeholder="Inicio, Servicios, Sobre mí, Contacto...">
+                <span>Desired pages/sections:</span>
+                <input type="text" name="sitemap" placeholder="Inicio, Servicios, Sobre mí, Contacto..."></label>
             </div>
 
             <div class="form-group">
-                <label>Funcionalidades específicas / Features:</label>
+                <label>Funcionalidades específicas / Features:
                 <div class="checkbox-group">
                     <label class="checkbox-item"><input type="checkbox" name="features" value="whatsapp"> Botón WhatsApp / WhatsApp Button</label>
                     <label class="checkbox-item"><input type="checkbox" name="features" value="form"> Formulario de Contacto / Contact Form</label>
                     <label class="checkbox-item"><input type="checkbox" name="features" value="animations"> Animaciones / Animations</label>
                     <label class="checkbox-item"><input type="checkbox" name="features" value="database"> Base de Datos (Full-Stack) / Database</label>
-                </div>
+                </div></label>
             </div>
         </fieldset>
 
@@ -220,16 +221,16 @@
             
             <div class="form-group">
                 <label>¿Cuenta con Hosting y Dominio?<br>
-                <span>Do you have Hosting & Domain?</span></label>
+                <span>Do you have Hosting & Domain?</span>
                 <select name="hosting_status">
                     <option value="ya_tengo">Ya los tengo / I already have them</option>
                     <option value="no_tengo">No los tengo / I don't have them</option>
-                </select>
+                </select></label>
             </div>
 
             <div class="form-group">
-                <label>Fecha de lanzamiento ideal / Ideal launch date:</label>
-                <input type="date" name="deadline">
+                <label>Fecha de lanzamiento ideal / Ideal launch date:
+                <input type="date" name="deadline"></label>
             </div>
         </fieldset>
 
