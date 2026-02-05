@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Briefing Técnico - Desarrollo Web</title>
+    <style>
+        :root {
+            --primary-color: #4a90e2;
+            --bg-color: #f4f7f6;
+            --text-color: #333;
+            --card-bg: #ffffff;
+            --border-color: #ddd;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        h1 { text-align: center; color: var(--primary-color); margin-bottom: 10px; }
+        p.subtitle { text-align: center; margin-bottom: 30px; color: #666; font-style: italic; }
+
+        fieldset {
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+
+        legend {
+            font-weight: bold;
+            padding: 0 10px;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            font-size: 0.9em;
+        }
+
+        .form-group { margin-bottom: 20px; }
+
+        label { display: block; margin-bottom: 8px; font-weight: 600; }
+        label span { font-weight: normal; color: #777; font-size: 0.9em; }
+
+        input[type="text"],
+        input[type="url"],
+        input[type="date"],
+        input[type="email"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        .checkbox-group, .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .checkbox-item, .radio-item {
+            display: flex;
+            align-items: center;
+            font-weight: normal;
+        }
+
+        input[type="checkbox"], input[type="radio"] {
+            margin-right: 10px;
+            width: 18px;
+            height: 18px;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        button:hover { background-color: #357abd; }
+
+        @media (max-width: 600px) {
+            .container { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Briefing Técnico / Technical Briefing</h1>
+    <p class="subtitle">Desarrollo Web & Diseño / Web Development & Design</p>
+
+    <form action="https://formspree.io/f/xovyaqbk" method="POST" enctype="multipart/form-data">
+
+        <fieldset>
+            <legend>1. Informacion de la Marca / Brand Information</legend>
+            
+            <div class="form-group">
+                <label>Nombre completo del cliente<br>
+                <span>Client's full name</span></label>
+                <textarea name="benchmark" rows="3" placeholder="Ej. Jane Doe" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Nombre de la marca<br>
+                <span>Brand's name</span></label>
+                <textarea name="benchmark" rows="3" placeholder="Ej. Elistudio" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Email<br>
+                <input type="email" required>
+            </div>
+
+        </fieldset>
+        
+        <fieldset>
+            <legend>2. Identidad y Activos / Identity & Assets</legend>
+            
+            <div class="form-group">
+                <label>¿Cuenta con manual de marca o logo en alta resolución?<br>
+                <span>Do you have a brand manual or high-res logo?</span></label>
+                <div class="radio-group">
+                    <label class="radio-item"><input type="radio" name="brand_assets" value="si" required> Sí / Yes</label>
+                    <label class="radio-item"><input type="radio" name="brand_assets" value="no"> No</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Subir logo o manual (si aplica) - De tener mas de un documento, subir comprimido (ej. rar, zip):<br>
+                <span>Upload logo or manual (if applicable) - If you have more than one document, upload them as a compressed file (e.g., rar, zip).</span></label>
+                <input type="file" name="logo_file">
+            </div>
+
+            <div class="form-group">
+                <label>Servicio de Redacción (Copywriting):<br>
+                <span>Who will handle the website content?</span></label>
+                <select name="copywriting_option" id="copywriting_option" required onchange="updateTotal()">
+                    <option value="cliente_entrega">Yo entregaré los textos / I will provide the texts ($0)</option>
+                    <option value="copy_landing">Pack Landing Page: Redacción persuasiva (+$100)</option>
+                    <option value="copy_multipage">Pack Multipágina: Redacción de 4 páginas (+$180)</option>
+                    <option value="copy_fullstack">Pack Full-Stack: Redacción y Microcopy (+$250)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Referencias / Benchmark:<br>
+                <span>Links to websites you like:</span></label>
+                <textarea name="benchmark" rows="3" placeholder="https://ejemplo.com - Me gusta su navegación..."></textarea>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>3. Alcance y Estructura / Scope & Structure</legend>
+            
+            <div class="form-group">
+                <label>Tipo de Proyecto / Project Type:</label>
+                <select name="project_type" required>
+                    <option value="landing">Landing Page ($250) - max 5 sections ($50 per extra section)</option>
+                    <option value="multipage">Web Multipágina ($500) - max 4 pages ($75 per extra page)</option>
+                    <option value="fullstack">Web Full-Stack ($1000)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>¿Desea mas páginas/secciones de las establecidas?<br>
+                <span>Do you want more pages/sections than those specified?</span></label>
+                <div class="radio-group">
+                    <label class="radio-item"><input type="radio" name="brand_assets" value="si" required> Sí / Yes</label>
+                    <label class="radio-item"><input type="radio" name="brand_assets" value="no"> No</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Mapa del sitio / Sitemap:<br>
+                <span>Desired pages/sections:</span></label>
+                <input type="text" name="sitemap" placeholder="Inicio, Servicios, Sobre mí, Contacto...">
+            </div>
+
+            <div class="form-group">
+                <label>Funcionalidades específicas / Features:</label>
+                <div class="checkbox-group">
+                    <label class="checkbox-item"><input type="checkbox" name="features" value="whatsapp"> Botón WhatsApp / WhatsApp Button</label>
+                    <label class="checkbox-item"><input type="checkbox" name="features" value="form"> Formulario de Contacto / Contact Form</label>
+                    <label class="checkbox-item"><input type="checkbox" name="features" value="animations"> Animaciones / Animations</label>
+                    <label class="checkbox-item"><input type="checkbox" name="features" value="database"> Base de Datos (Full-Stack) / Database</label>
+                </div>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>4. Infraestructura / Infrastructure</legend>
+            
+            <div class="form-group">
+                <label>¿Cuenta con Hosting y Dominio?<br>
+                <span>Do you have Hosting & Domain?</span></label>
+                <select name="hosting_status">
+                    <option value="ya_tengo">Ya los tengo / I already have them</option>
+                    <option value="no_tengo">No los tengo / I don't have them</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Fecha de lanzamiento ideal / Ideal launch date:</label>
+                <input type="date" name="deadline">
+            </div>
+        </fieldset>
+
+        <button type="submit">Enviar Briefing / Send Briefing</button>
+    </form>
+</div>
+
+</body>
+</html>
